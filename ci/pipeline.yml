@@ -665,6 +665,7 @@ jobs:
           passed:
           - candidate-release
         - get: bosh-dns-release
+          resource: bosh-dns-candidate-release
         - get: candidate-warden-ubuntu-stemcell
         - get: bosh-release
           resource: bosh-candidate-release-tarballs
@@ -733,6 +734,12 @@ resources:
       access_key_id: {{candidate_release_access_key_id}}
       secret_access_key: {{candidate_release_secret_access_key}}
       versioned_file: "bosh-dev-release.tgz"
+
+  - name: bosh-dns-candidate-release
+    type: s3
+    source:
+      bucket: bosh-dns-release-candidate-tarballs
+      versioned_file: "bosh-dns-dev-release.tgz"
 
   - name: davcli
     type: s3
