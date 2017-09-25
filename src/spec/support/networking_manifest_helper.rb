@@ -1,7 +1,7 @@
 module Bosh::Spec
   class NetworkingManifest
     def self.deployment_manifest(opts={})
-      manifest = opts.fetch(:manifest, Bosh::Spec::Deployments.simple_manifest)
+      manifest = opts.fetch(:manifest, Bosh::Spec::NewDeployments.simple_manifest)
       manifest['name'] = opts.fetch(:name, 'simple')
 
       job_opts = {}

@@ -46,7 +46,7 @@ module Bosh::Director
 
     let(:release_name) { deployment_manifest['releases'].first['name'] }
     let(:manifest_release_version) { deployment_manifest['releases'].first['version'] }
-    let(:deployment_manifest) { Bosh::Spec::Deployments.simple_manifest }
+    let(:deployment_manifest) { Bosh::Spec::NewDeployments.simple_manifest }
 
     it 'raises an error when the targeted deployment is not found' do
       create_stemcell
@@ -56,7 +56,7 @@ module Bosh::Director
     end
 
     context 'with a valid deployment targeted' do
-      let(:cloud_config) { Bosh::Spec::Deployments.simple_cloud_config }
+      let(:cloud_config) { Bosh::Spec::NewDeployments.simple_cloud_config }
 
       let!(:deployment_model) do
         deployment = Models::Deployment.make(
